@@ -25,6 +25,7 @@
             :title="item.title"
             :description="item.description"
             :status="item.status"
+            :link-url="item.link"
             linkText="Документация"
           >
             <svg
@@ -59,6 +60,7 @@
             :title="item.title"
             :description="item.description"
             :status="item.status"
+            :link-url="item.link"
             linkText="Документация"
           >
             <svg
@@ -93,6 +95,7 @@
             :title="item.title"
             :description="item.description"
             :status="item.status"
+            :link-url="item.link"
             linkText="Документация"
           >
             <svg
@@ -127,7 +130,8 @@
             :title="item.title"
             :description="item.description"
             :status="item.status"
-            linkText="Документация"
+            :link-url="item.link"
+            link-text="Документация"
           >
             <svg
               width="44"
@@ -165,18 +169,21 @@ export default {
     return {
       product1: [
         {
+          link: '/doc/api/5.6.11',
           status: "Премиум",
           title: "Мгновенная отчетность",
           description:
             "Предоставление информации об остатках на счетах и ​​дневной выписке в режиме реального времени для вашего бизнеса.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "Премиум",
           title: "Мгновенная отчетность\n",
           description:
             "Позволяет корпоративным клиентам инициировать платежи через прямой системный интерфейс и получать подтверждение платежа.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "Премиум",
           title: "FX сделки",
           description:
@@ -185,30 +192,35 @@ export default {
       ],
       product2: [
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Корпоративная выплата",
           description:
             "Позволяет корпоративным клиентам инициировать платежи через прямой интерфейс системы и получать мгновенное подтверждение. ",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Лидогенерация",
           description:
             "Привлекайте новых клиентов в Банк через заявки на выпуск карт, выдачу кредита, открытие счета из ваших приложений и зарабатывайте.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
             "Используйте справочники общего назначения для передачи справочных значений в поля API.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Корпоративная выплата",
           description:
             "Позволяет корпоративным клиентам инициировать платежи через прямой интерфейс системы и получать мгновенное подтверждение. ",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Лидогенерация",
           description:
@@ -217,24 +229,28 @@ export default {
       ],
       product3: [
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Корпоративная выплата",
           description:
             "Позволяет корпоративным клиентам инициировать платежи через прямой интерфейс системы и получать мгновенное подтверждение. ",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Лидогенерация",
           description:
             "Привлекайте новых клиентов в Банк через заявки на выпуск карт, выдачу кредита, открытие счета из ваших приложений и зарабатывайте.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
             "Используйте справочники общего назначения для передачи справочных значений в поля API.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
@@ -243,36 +259,42 @@ export default {
       ],
       product4: [
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
             "Используйте справочники общего назначения для передачи справочных значений в поля API.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
             "Используйте справочники общего назначения для передачи справочных значений в поля API.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
             "Используйте справочники общего назначения для передачи справочных значений в поля API.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
             "Используйте справочники общего назначения для передачи справочных значений в поля API.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
             "Используйте справочники общего назначения для передачи справочных значений в поля API.",
         },
         {
+          link: '/doc/api/5.6.11',
           status: "",
           title: "Открытые справочники",
           description:
@@ -293,6 +315,7 @@ $dark: #262c40;
 
 .products-api {
   width: 100%;
+  margin-bottom: 0px;
 
   &__header {
     display: flex;
@@ -331,11 +354,12 @@ $dark: #262c40;
   &__containerWrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   &__product-item {
     margin-bottom: 27px;
+    margin-right: 20px;
   }
 }
 </style>

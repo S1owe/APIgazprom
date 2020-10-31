@@ -5,6 +5,7 @@
     :class="classes"
     :disabled="disabled"
     v-on="$listeners"
+    :to="to"
   >
     <div class="base-button__inner">
       <span v-if="$slots.default || title" class="base-button__text">

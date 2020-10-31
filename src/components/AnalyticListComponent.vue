@@ -3,17 +3,13 @@
     <div class="team-page__container">
       <div class="team-page__header">
         <h2 class="team-page__title">Команды</h2>
-
-        <button class="team-page__createAppBtn">
-          Создать команду
-        </button>
       </div>
 
       <div class="team-page__main">
-        <router-link :to="{name: 'team-details', params: {teamId: item.href}}"
-          class="team-page__app-item"
-          v-for="(item, i) in teams"
-          :key="i"
+        <router-link :to="{name: 'analytic-item', params: {teamId: item.href}}"
+                     class="team-page__app-item"
+                     v-for="(item, i) in teams"
+                     :key="i"
         >
           <application-card
             :title="item.title"
@@ -32,8 +28,7 @@
 import ApplicationCard from "./cards/ApplicationCard";
 
 export default {
-  name: "TeamPage",
-
+  name: "AnalyticListComponent",
   components: { ApplicationCard },
 
   data() {
@@ -56,7 +51,7 @@ export default {
       ]
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -132,13 +132,17 @@ export default {
   }
 
   &__input {
-    width: 16px; // can bee moved to &--size_{size} selector
-    height: 16px; // can bee moved to &--size_{size} selector
+    width: 16px;
+    height: 16px;
     border: 2px solid #d7dee9;
     box-sizing: border-box;
     border-radius: 2px;
     margin-right: 6px;
     cursor: pointer;
+  }
+
+  &__label {
+    margin: 0px;
   }
 
   &__label-text {

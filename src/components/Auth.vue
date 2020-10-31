@@ -112,11 +112,11 @@
 
           <div class="auth-page__support">
             <span class="auth-page__support-text">
-              Регистрируясь вы принмаете
+              Регистрируясь вы принимаете
             </span>
 
             <base-button theme="plain" size="small" :underline="true">
-              Условия использования Гаспромбанк
+              Условия использования Газпромбанк
             </base-button>
           </div>
         </div>
@@ -241,7 +241,7 @@ export default {
   }
 
   &__content {
-    max-width: 500px;
+    width: 500px;
   }
 
   &__tabs {

@@ -10,9 +10,9 @@
                             Используйте API Газпромбанка для создания новых бизнес-моделей монетизации ваших приложений. Получите все необходимые инструменты, оперативную техническую поддержку и выплаты без задержек. <br> <br>
                             Предоставьте вашим клиентам сервисы Газпромбанка в их любимом приложении.
                         </div>
-                        <div class="api_info_content_btn">
+                        <router-link :to="{name: 'products'}" class="api_info_content_btn">
                             Посмотреть API продукты
-                        </div>
+                        </router-link>
                     </div>
                     <div class="api_info_img">
                         <svg width="589" height="428" viewBox="0 0 589 428" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -341,12 +341,12 @@
                         <div class="product_description">
                             {{item.description}}
                         </div>
-                        <a>Список API</a>
+                        <a :href="item.link">Список API</a>
                     </div>
                 </div>
 
                 <div class="productApi_btn">
-                    <base-button theme="default" size="medium">
+                    <base-button :to="{name: 'products'}" theme="default" size="medium">
                         Посмотреть все продукты
                     </base-button>
                 </div>
@@ -420,31 +420,37 @@
 
                 product: [
                     {
+                        link: '/products',
                         status: 'Премиум',
                         title: 'Мгновенная отчетность',
                         description: 'Предоставление информации об остатках на счетах и ​​дневной выписке в режиме реального времени для вашего бизнеса.'
                     },
                     {
+                        link: '/products',
                         status: 'Премиум',
                         title: 'Мгновенная отчетность\n',
                         description: 'Позволяет корпоративным клиентам инициировать платежи через прямой системный интерфейс и получать мгновенное подтверждение платежа.'
                     },
                     {
+                        link: '/products',
                         status: 'Премиум',
                         title: 'FX сделки',
                         description: 'Автоматически выполняйте сделки FX Spot из ваших систем и в соответствии с вашими собственными правилами.'
                     },
                     {
+                        link: '/products',
                         status: '',
                         title: 'Корпоративная выплата',
                         description: 'Позволяет корпоративным клиентам инициировать платежи через прямой интерфейс системы и получать мгновенное подтверждение. '
                     },
                     {
+                        link: '/products',
                         status: '',
                         title: 'Лидогенерация',
                         description: 'Привлекайте новых клиентов в Банк через заявки на выпуск карт, выдачу кредита, открытие счета из ваших приложений и зарабатывайте.'
                     },
                     {
+                        link: '/products',
                         status: '',
                         title: 'Открытые справочники',
                         description: 'Используйте справочники общего назначения для передачи справочных значений в поля API.'
@@ -509,6 +515,7 @@
     .main_container {
         display: flex;
         flex-direction: column;
+        margin-bottom: 0px;
     }
 
     #main {
@@ -541,6 +548,7 @@
                 font-size: 48px;
                 font-weight: 700;
                 margin: 25px 0 20px 0;
+              color: white;
             }
 
             .api_info_content_text {
@@ -779,7 +787,7 @@
             flex-direction: row;
             flex-wrap: wrap;
             margin-top: 56px;
-            justify-content: space-between;
+            justify-content: flex-start;
 
 
             .product {
@@ -792,6 +800,7 @@
                 background-color: white;
                 box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.06);
                 margin-bottom: 26px;
+                margin-right: 20px;
 
                 .status {
                     display: flex;

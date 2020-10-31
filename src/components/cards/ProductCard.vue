@@ -17,10 +17,10 @@
     </div>
 
     <div class="product-card__footer">
-      <span class="product-card__footer-link">{{ linkText }}</span>
+      <a class="product-card__footer-link" :href="linkUrl">{{ linkText }}</a>
 
-      <button class="product-card__unsubBtn" v-if="showCtrlBtns">
-        Отключить API
+      <button class="product-card__unsubBtn" v-if="showCtrlBtns" @click="handleSub">
+        {{`${viewType === 'unsub' ? 'Отключить API' : 'Подключить API'}`}}
       </button>
     </div>
   </div>
@@ -47,6 +47,10 @@ export default {
       type: String,
       default: "",
     },
+    linkUrl: {
+      type: String,
+      default: null,
+    },
     viewType: {
       type: String,
       default: "default",
@@ -66,6 +70,12 @@ export default {
       return ["sub", "unsub"].includes(this.viewType);
     },
   },
+
+  methods: {
+    handleSub() {
+      this.$emit('handle-sub', this.viewType);
+    }
+  }
 };
 </script>
 
@@ -160,6 +170,10 @@ $blue: #0066cc;
     color: $blue;
     cursor: pointer;
     text-decoration: underline;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 </style>

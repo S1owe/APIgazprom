@@ -1,7 +1,7 @@
 <template>
   <transition name="global" mode="out-in" appear>
     <Loading v-if="!is_open" :times="300" />
-    <div id="app" v-else>
+    <div id="app" class="app" v-else>
       <HeaderComponent v-if="!isAuthPage"/>
       <transition name="global" mode="out-in" appear>
         <div class="row m-0 component" v-if="$route.meta[0] === 'lk'">
@@ -16,7 +16,7 @@
         <router-view v-else class="component"
                      :key="$route.name === 'api_doc' ? $route.name + this.$route.params.version : $route.path"/>
       </transition>
-      <FooterComponent v-if="!isAuthPage"/>
+      <FooterComponent v-if="!isAuthPage && $route.name !== 'api_doc'"/>
     </div>
   </transition>
 </template>
@@ -81,8 +81,7 @@ export default {
       }
     }).then((response) => {
       if (response.code !== '0') {
-        if (!this.isAuthPage) {
-          notify(response.error, 'error');
+        if (!this.isAuthPage && this.$route.name !== 'main' && this.$route.name !== 'products') {
           this.$router.push({name: 'auth'});
         }
       } else {
@@ -108,13 +107,56 @@ export default {
 @import '~@/../node_modules/noty/lib/noty.css';
 @import "~@/../node_modules/noty/lib/themes/metroui.css";
 
+.custom_modal {
+
+  .modal-header {
+    border-bottom: 2px #F0F1F4 solid;
+  }
+
+  .modal-footer {
+    border-top: 2px #F0F1F4 solid;
+
+    button {
+      font-family: "ProximaNova-Bold";
+      width: 10rem;
+    }
+
+    .ok, .ok:hover {
+      color: white;
+      background-color: #0066CC;
+    }
+
+    .cancel, .cancel:hover {
+      color: #0066CC;
+      border: 2px #0066CC solid;
+    }
+  }
+}
+
+html {
+  min-width: 1617px;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
+button, a {
+  outline: none;
+}
+
+.app a:hover {
+  text-decoration: none;
+}
+
 .component {
   padding-top: 110px;
+  margin-bottom: 50px;
+}
+
+.component .component {
+  padding-top: 0;
 }
 
 .collapse-btn .icon svg {

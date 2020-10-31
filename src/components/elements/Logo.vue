@@ -3,11 +3,8 @@
     <div v-if="isPrimary" class="logo__iconWrap">
       <logo-icon />
     </div>
-    <div v-if="isPrimary" class="logo__mainPrimary">
-      <span class="logo__primaryName">Гаспромбанк</span>
-    </div>
     <div v-if="isSecondary" class="logo__mainSecondary">
-      <span class="logo__secondaryName">Гаспромбанк</span>
+      <span class="logo__secondaryName">Газпромбанк</span>
       <div class="logo__rectangle"></div>
       <span class="logo__secondaryTagline">для разработчиков</span>
     </div>
@@ -50,18 +47,6 @@ export default {
   display: flex;
   align-items: center;
   cursor: pointer;
-
-  &__iconWrap {
-    margin-right: 30px;
-  }
-
-  &__primaryName {
-    color: $color-blue--dark;
-    font-size: $font-size-extra-large;
-    font-weight: $font-weight-black;
-    letter-spacing: -3px;
-    text-transform: uppercase;
-  }
 
   &__mainSecondary {
     display: flex;

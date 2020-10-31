@@ -218,9 +218,16 @@ export default {
         });
       }
       this.is_show = true;
-      this.$nextTick(() => {
-        this.render_api();
-      });
+      if (this.module) {
+        this.$nextTick(() => {
+          this.render_api();
+        });
+      } else {
+        this.content_doc.start = "<h1>Выберите ппункт</h1>";
+        this.content_doc.end = '';
+        this.content_doc.sandbox = false;
+        this.content_doc.is_show = true;
+      }
     });
   }
 }
@@ -246,13 +253,13 @@ export default {
 <style scoped>
 .sidebar {
   border-right: 2px solid #D7DEE9;
-  height: calc(100vh - 110px - 236px);
+  height: calc(100vh - 110px);
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .content {
-  height: calc(100vh - 110px - 236px);
+  height: calc(100vh - 110px);
   overflow-y: auto;
 }
 

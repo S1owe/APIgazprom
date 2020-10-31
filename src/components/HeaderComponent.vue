@@ -1,27 +1,27 @@
 <template>
     <div id="header">
-        <div class="logo_container">
+        <router-link :to="{name: 'main'}" class="logo_container">
             <div class="logo_item_title">Газпромбанк</div>
             <div class="logo_item_line"></div>
             <div class="logo_item_secondTitle">для разработчиков</div>
-        </div>
+        </router-link>
 
         <div class="menu">
-            <div class="menu_item">Продукты API</div>
+            <router-link :to="{name: 'products'}" class="menu_item">Продукты API</router-link>
             <div class="menu_item">Наши преимущества</div>
             <div class="menu_item">Помощь разработчику</div>
         </div>
 
         <div class="input" v-if="is_auth === false">
-            <div class="input_btn">Войти</div>
-            <div class="input_btn-registration">
+            <router-link :to="{name: 'auth'}" class="input_btn">Войти</router-link>
+            <router-link :to="{name: 'auth'}" class="input_btn-registration">
                 <div class="input_btn-registration-background"></div>
                 <div class="text">Зарегистрироваться</div>
-            </div>
+            </router-link>
         </div>
 
         <div class="input aut" v-if="is_auth === true">
-            <div class="input_btn">{{username}}</div>
+            <router-link :to="{name: 'applications'}" class="input_btn">{{username}}</router-link>
            <div class="input_svg" @click="logout">
                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                    <path d="M11.9395 12H21.6895" stroke="#262C40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -106,6 +106,10 @@
         -moz-box-shadow:0px 2px 7px 2px rgba(0,0,0,0.11);
         font-size: 18px;
         color: #262C40;
+
+      a {
+        color: #262C40;
+      }
     }
 
     .logo_container {
