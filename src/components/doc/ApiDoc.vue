@@ -159,6 +159,8 @@ export default {
           let MarkdownIt = require('markdown-it'),
             md = new MarkdownIt();
           this.content_doc.start = md.render(response);
+          this.content_doc.end = '';
+          this.content_doc.sandbox = false;
           let point = this.points.find(p => p.href === module);
           if (point.is_parse_header) {
             point.headers.length = 0;
@@ -223,10 +225,12 @@ export default {
           this.render_api();
         });
       } else {
-        this.content_doc.start = "<h1>Выберите ппункт</h1>";
-        this.content_doc.end = '';
-        this.content_doc.sandbox = false;
-        this.content_doc.is_show = true;
+        this.$router.push({name: 'api_doc', params: {version: this.version, module: response.points[0].href}});
+        setTimeout(() => {
+          this.$nextTick(() => {
+            this.render_api();
+          });
+        }, 300);
       }
     });
   }

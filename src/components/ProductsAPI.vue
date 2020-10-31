@@ -339,7 +339,7 @@ $dark: #262c40;
   }
 
   &__container {
-    padding: 0px 250px;
+    padding: 0px 245px;
     margin-bottom: 90px;
   }
 
@@ -354,12 +354,13 @@ $dark: #262c40;
   &__containerWrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
   }
 
   &__product-item {
     margin-bottom: 27px;
-    margin-right: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
   }
 }
 </style>

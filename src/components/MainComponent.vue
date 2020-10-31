@@ -787,7 +787,7 @@
             flex-direction: row;
             flex-wrap: wrap;
             margin-top: 56px;
-            justify-content: flex-start;
+            justify-content: space-around;
 
 
             .product {
@@ -800,7 +800,8 @@
                 background-color: white;
                 box-shadow: 0px 0px 13px 0px rgba(34, 60, 80, 0.06);
                 margin-bottom: 26px;
-                margin-right: 20px;
+                margin-right: 5px;
+                margin-left: 5px;
 
                 .status {
                     display: flex;

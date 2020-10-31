@@ -1,18 +1,21 @@
-# api_gazprombank
+Для запуска проекта должен быть установлен npm, а также node.js
+https://nodejs.org/en/download/
 
-> A Vue.js project
+Обратите внимание, что при разворачивании на Win хосте могут быть сложности с отсутсвием утилит в PATH
 
-## Build Setup
+Что будет выдавать ошибки такого рода еще на этапе проверки версии:
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+```
+B:\Downloads\APIgazprom-master\APIgazprom-master>node -v
+"node" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Поэтому рекомендуем использовать GIT Bash или схожий bash-терминал для Win, там все нормально работает сразу
+
+После этого затяните себе проект из репозитория и в его корне выполните команды в следующей последовательности:
+
+1) npm install yarn -g
+2) npm install @vue/cli-service -g
+3) yarn install
+4) npm run serve
