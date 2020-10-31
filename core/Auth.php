@@ -49,7 +49,7 @@ EOD;
         if (isset($token['result']))
             return $token;
 
-        return ['code' => '0', 'token' => $token];
+        return ['code' => '0', 'token' => $token, 'full_name' => $user['full_name']];
     }
 
     public function createToken($id, $fullName, $email)

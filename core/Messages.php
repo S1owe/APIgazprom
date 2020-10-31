@@ -22,8 +22,9 @@ class Messages
             $user = $this->db->getOneData("SELECT u.id FROM users u WHERE u.role=1 limit 1")['id'];
             $sql = sprintf("INSERT INTO conversation_user(id_conv, id_user) VALUES (%d, %d)", $id, $user);
             $this->db->query($sql);
-            $sql = sprintf("INSERT INTO massages(id_conv, id_user, text, time) VALUES (%d, %d, '%s', %d)",
+            $sql = sprintf("INSERT INTO messages(id_conv, id_user, text, time) VALUES (%d, %d, '%s', %d)",
                             $id, $userId, $this->message, time());
+            $this->db->query($sql);
             $this->db->query("COMMIT;");
             return ['error' => 0];
         }catch (Exception $exception){
@@ -42,7 +43,7 @@ class Messages
     }
 
     public function getOneDialog($id){
-        $sql = sprintf("SELECT u.full.name, m.text, from_unixtime(m.time, '%d.%m.%Y') FROM messages m 
+        $sql = sprintf("SELECT u.full_name, m.text, from_unixtime(m.time, '%d.%m.%Y') as date FROM messages m 
                         LEFT JOIN users u ON u.id=m.id_user
                         WHERE m.id_conv=%d ORDER BY time ASC");
     }
@@ -55,10 +56,8 @@ class Messages
     public function sendMessage($convId, $userId, $message){
         try{
             $this->db->query("START TRANSACTION;");
-            $sql = sprintf("SELECT id_user FROM conversation_user cu WHERE cu.id_conv=%d AND cu.id_user<>%d",$convId, $userId);
-            $user = $this->db->getOneData($sql)['id_user'];
             $sql = sprintf("INSERT INTO messages(id_conv, id_user, text, time) VALUES (%d, %d, '%s', %d)",
-                            $convId, $user, $message, time());
+                            $convId, $userId, $message, time());
             $this->db->query($sql);
             $this->db->query("COMMIT;");
             return ['error' => 0];

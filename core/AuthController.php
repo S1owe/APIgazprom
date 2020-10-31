@@ -96,10 +96,4 @@ class AuthController extends Auth
             return ['result' => '-1', 'error' => $ex->getTraceAsString()];
         }
     }
-
-    public static function activateInvite($token){
-
-
-    }
-
 }

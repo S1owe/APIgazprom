@@ -98,4 +98,66 @@ class ApiPage
         $sql = "SELECT id, title, description, is_premium FROM categories WHERE is_deleted=0";
         return $this->db->getAllData($sql);
     }
+
+    public function getSandbox($payload){
+      if($payload['token']==""){
+        $data = [
+              "httpCode" => 401,
+              "httpMessage" => "Unauthorized",
+              "moreInformation" => "Client token missing."
+        ];
+      }else{
+        $data = [
+          'token' => $payload['token'],
+          'operationType' => 'payment',
+          'channel' => 'mobile',
+          'sberbankIdInvoice' => [
+            'merchantInvoiceId' => '6e87c0651a8c7927b5',
+            'desc' => 'Описание заявки',
+            'printDesc' => 'Ваша заявка на оплату заказа №*** ...',
+            'initiatorType' => 'client',
+            'orderCreationDate' => '2018-08-28T15:51:20',
+            'orderLifeTime' => 3600,
+            'amount' => [
+              'value' => 10000000,
+              'currency'=> 'RUB'
+            ],
+            'language' => 'ru',
+            'client' => [
+              'clientId' => '123123',
+              'clientEmail' => 'client@gazbank.ru',
+              'clientContact' => 'почта',
+              'mobilePhoneNumber' => '89160000000',
+              'deliveryInfo' => [
+                'deliveryType' => 'Курьерская доставка',
+                'deliveryCountry' => 'RU',
+                'deliveryCity' => 'Москва',
+                'postAddress' => '117997'
+              ]
+            ],
+            'itemList' => [
+              [
+                'id' => '2343rwer324',
+                'itemPositionId' => 1,
+                'name' => 'Фотоаппарат',
+                'description' => 'Хороший современный фотоаппарат',
+                'price' => [
+                  'value' => 10000000,
+                  'currency' => 'RUB'
+                ],
+                'count' => 100,
+                'quantityMeasure' => 'кг',
+                'taxType' => 0,
+                'taxSum' => 123,
+                'itemDetails'=> '0KLQvtCy0LDRgNC90LDRjyDQv9C+0LfQuNGG0LjRjw=='
+              ]
+            ],
+            'merchantInfo' => [
+              'taxSystem' => 0
+            ]
+          ]
+        ];
+      }
+      return $data;
+    }
 }

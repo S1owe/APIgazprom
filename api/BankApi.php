@@ -35,7 +35,7 @@ class BankApi
                 return ['result' => '-6', 'error' => 'BAD LOGIN OR PASS','notify_msg'=>'Неверный логин или пароль'];
                 break;
             case '0':
-                return ['result' => '0', 'status' => 'ok', 'username' => $login, 'token' => $token['token']];
+                return ['result' => '0', 'status' => 'ok', 'username' => $token['full_name'], 'token' => $token['token']];
                 break;
             default:
                 return $token;
@@ -176,57 +176,8 @@ class BankApi
     }
 
     public function sandbox($args){
-        $data = [
-            'requestType' => 'gazbankid',
-          'operationType' => 'payment',
-          'channel' => 'mobile',
-          'sberbankIdInvoice' => [
-                    'merchantInvoiceId' => '6e87c0651a8c7927b5',
-            'desc' => 'Описание заявки',
-            'printDesc' => 'Ваша заявка на оплату заказа №*** ...',
-            'initiatorType' => 'client',
-            'orderCreationDate' => '2018-08-28T15:51:20',
-            'orderLifeTime' => 3600,
-            'amount' => [
-                        'value' => 10000000,
-              'currency'=> 'RUB'
-            ],
-            'language' => 'ru',
-            'client' => [
-                        'clientId' => '123123',
-              'clientEmail' => 'client@gazbank.ru',
-              'clientContact' => 'почта',
-              'mobilePhoneNumber' => '89160000000',
-              'deliveryInfo' => [
-                            'deliveryType' => 'Курьерская доставка',
-                'deliveryCountry' => 'RU',
-                'deliveryCity' => 'Москва',
-                'postAddress' => '117997'
-              ]
-            ],
-            'itemList' => [
-                [
-                  'id' => '2343rwer324',
-                'itemPositionId' => 1,
-                'name' => 'Фотоаппарат',
-                'description' => 'Хороший современный фотоаппарат',
-                'price' => [
-                  'value' => 10000000,
-                  'currency' => 'RUB'
-                ],
-                'count' => 100,
-                'quantityMeasure' => 'кг',
-                'taxType' => 0,
-                'taxSum' => 123,
-                'itemDetails'=> '0KLQvtCy0LDRgNC90LDRjyDQv9C+0LfQuNGG0LjRjw=='
-              ]
-            ],
-            'merchantInfo' => [
-                        'taxSystem' => 0
-            ]
-          ]
-        ];
-        return $data;
+        $api = new ApiPage();
+        return $api->getSandbox(json_decode($args['payload'], true));
     }
 
     public function getAllProducts(){
