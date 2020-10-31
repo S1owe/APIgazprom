@@ -8,8 +8,8 @@
 
         <div class="menu">
             <router-link :to="{name: 'products'}" class="menu_item">Продукты API</router-link>
-            <div class="menu_item">Наши преимущества</div>
-            <div class="menu_item">Помощь разработчику</div>
+            <div @click="error" class="menu_item">Наши преимущества</div>
+            <div @click="error" class="menu_item">Помощь разработчику</div>
         </div>
 
         <div class="input" v-if="is_auth === false">
@@ -39,7 +39,7 @@
 
 <script>
     import {store_vars} from "@/mixins";
-    import {send} from "@/const";
+    import {notify, send} from "@/const";
 
     export default {
         name: "HeaderComponent",
@@ -62,6 +62,9 @@
         },
 
         methods: {
+          error: function () {
+            notify("Раздел сайта разработке", 'error');
+          },
           logout: function () {
             send.get('api.php', {
               params: {

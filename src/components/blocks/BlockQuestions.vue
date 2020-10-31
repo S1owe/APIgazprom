@@ -197,12 +197,15 @@
 
 <script>
 import BaseButton from '../elements/BaseButton'
+import {notify} from "@/const";
 
 export default {
   name: "BlockQuestions",
 
   methods: {
-    handleSend() {},
+    handleSend() {
+      notify("Функция в разработке", 'error');
+    },
   },
 
     components: {

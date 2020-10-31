@@ -52,7 +52,8 @@
               :viewType="item.viewType"
               :status="item.status"
               @handle-sub="(sub) => handleSub(sub, i)"
-              linkText="Документация"
+              link-text="Документация"
+              link-url="/doc/api/5.6.11"
             >
               <svg
                 width="44"

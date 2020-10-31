@@ -1,7 +1,7 @@
 <template>
   <div class="products-api">
     <div class="products-api__header">
-      <h1 class="products-api__title">Продукты API</h1>
+      <h1 class="products-api__title"><a name="products_api">Продукты API</a></h1>
       <p class="products-api__header-text">
         Познакомьтесь с семейством продуктов Газпромбанк API. Изучите продукты и
         узнайте,<br />

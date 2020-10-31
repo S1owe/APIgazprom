@@ -10,7 +10,7 @@ export const notify = function(text, type = 'success') {
 };
 
 export const defaultParams = {
-  path: "http://gasbank.creativityprojectcenter.ru/"
+  path: "http://gazbank.creativityprojectcenter.ru/"
 };
 
 export const log = function (text) {

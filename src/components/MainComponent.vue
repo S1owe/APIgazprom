@@ -341,7 +341,7 @@
                         <div class="product_description">
                             {{item.description}}
                         </div>
-                        <a :href="item.link">Список API</a>
+                        <router-link :to="item.link">Список API</router-link>
                     </div>
                 </div>
 

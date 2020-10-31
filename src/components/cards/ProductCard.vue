@@ -17,7 +17,7 @@
     </div>
 
     <div class="product-card__footer">
-      <a class="product-card__footer-link" :href="linkUrl">{{ linkText }}</a>
+      <router-link class="product-card__footer-link" :to="linkUrl">{{ linkText }}</router-link>
 
       <button class="product-card__unsubBtn" v-if="showCtrlBtns" @click="handleSub">
         {{`${viewType === 'unsub' ? 'Отключить API' : 'Подключить API'}`}}

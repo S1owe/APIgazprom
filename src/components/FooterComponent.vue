@@ -9,7 +9,7 @@
 
     <div class="footer__right">
       <div class="footer__socialLinks">
-        <a class="footer__socialLink" href="">
+        <a class="footer__socialLink" href="https://www.facebook.com/gazprombank/" target="_blank">
           <svg
             width="38"
             height="38"
@@ -26,7 +26,7 @@
           </svg>
         </a>
 
-        <a class="footer__socialLink" href="">
+        <a class="footer__socialLink" href="https://www.instagram.com/gazprombank/" target="_blank">
           <svg
             width="38"
             height="38"
@@ -43,7 +43,7 @@
           </svg>
         </a>
 
-        <a class="footer__socialLink">
+        <a class="footer__socialLink" href="https://www.youtube.com/channel/UCwtYpm9ay6jsJjAdeSj4f2g" target="_blank">
           <svg
             width="38"
             height="38"
@@ -69,11 +69,15 @@
 </template>
 
 <script>
+import {notify} from "@/const";
+
 export default {
   name: "FooterComponent",
 
   methods: {
-    subMail() {},
+    subMail() {
+      notify("Функция в разработке", 'error');
+    },
   },
 };
 </script>
